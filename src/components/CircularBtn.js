@@ -15,7 +15,7 @@ const Circularbtn = ({
         <TouchableOpacity style={{}}>
 
             <Image
-                source={{ uri: 'https://miro.medium.com/max/785/0*Ggt-XwliwAO6QURi.jpg' }}
+                source={{ uri: 'https://scontent-lga3-1.cdninstagram.com/v/t51.2885-19/s320x320/122132213_765825297311604_170610126647065313_n.jpg?_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_cat=100&_nc_ohc=ZOgtKubkLR8AX9TG98f&edm=ABfd0MgBAAAA&ccb=7-4&oh=00_AT_1RoakRl9TteSH796XrykLjJSUgBmzfqeNzReqU8F4yQ&oe=61D7F3DD&_nc_sid=7bff83' }}
                 style={styles.imgStyle}
             />
 

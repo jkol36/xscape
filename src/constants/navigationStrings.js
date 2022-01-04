@@ -5,5 +5,6 @@ export default {
     MAP: "Map",
     GOLIVE: "Go Live",
     DISCOVER: "Discover",
-    FOLLOWING: 'Following'
+    FOLLOWING: 'Following',
+    STREAMVIEW: 'StreamView',
 }

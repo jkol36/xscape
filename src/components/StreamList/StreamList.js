@@ -18,48 +18,52 @@ import {
   TagText,
 } from './styles';
 
-const StreamList = () => {
-  const StreamItem =() => (
-    <StreamContainer>
-      <StreamThumbnail source={streamThumbnail}/>
+const StreamList = ({navigation}) => {
+  //console.log('got navigation', navigation)
+  const StreamItem =({navigation}) => {
+    console.log('stream item', navigation === undefined)
+    return (
+      <StreamContainer onPress={() => navigation.navigation.navigate('StreamView')}>
+        <StreamThumbnail source={{uri:"https://image.mux.com/02dxu01Fbx01MB00FCMG7pQHzWoHjGgN6XLGxQWZQmVHxLY/thumbnail.png?width=214&height=121&fit_mode=pad"}}/>
 
-      <StreamColumn>
-        <StreamRow>
-          <StreamHeader>
-            <StreamAvatar />
-            <StreamUsername numberOfLines={1}>danrigoni</StreamUsername>
-          </StreamHeader>
+        <StreamColumn title="jkol36">
+          <StreamRow>
+            <StreamHeader>
+              <StreamAvatar />
+              <StreamUsername numberOfLines={1}>jkol36</StreamUsername>
+            </StreamHeader>
 
-          <StreamDescription numberOfLines={2}>
-            Live coding com React Native e TypeScript.
-          </StreamDescription>
+            <StreamDescription numberOfLines={2}>
+              Live coding com React Native e TypeScript.
+            </StreamDescription>
 
-          <StreamCategory numberOfLines={1}>
-            Science & Technology
-          </StreamCategory>
-        </StreamRow>
+            <StreamCategory numberOfLines={1}>
+              Science & Technology
+            </StreamCategory>
+          </StreamRow>
 
-        <TagRow>
-          <TagView>
-            <TagText>Portuguese</TagText>
-          </TagView>
-          <TagView>
-            <TagText>Mobile Development</TagText>
-          </TagView>
-          <TagView>
-            <TagText>React Native</TagText>
-          </TagView>
-        </TagRow>
-      </StreamColumn>
-    </StreamContainer>
-  )
+          <TagRow>
+            <TagView>
+              <TagText>React Native</TagText>
+            </TagView>
+            <TagView>
+              <TagText>Mobile Development</TagText>
+            </TagView>
+            <TagView>
+              <TagText>Coding</TagText>
+            </TagView>
+          </TagRow>
+        </StreamColumn>
+      </StreamContainer>
+    )
+  }
 
   return (
     <List>
-      <StreamItem />
-      <StreamItem />
-      <StreamItem />
-      <StreamItem />
+      <StreamItem navigation={navigation} />
+      <StreamItem navigation={navigation} />
+      <StreamItem navigation={navigation} />
+      <StreamItem navigation={navigation} />
     </List>
   );
 }

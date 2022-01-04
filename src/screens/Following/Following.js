@@ -11,16 +11,8 @@ import ChannelList from '../../components/ChannelList/ChannelList';
 
 import { Wrapper, Container, Main } from './styles';
 
-const Following = () => {
-  console.log('mainHeader', MainHeader)
-  console.log('Heading', Heading)
-  console.log('Title', Title)
-  console.log('CategoryList', CategoryList)
-  console.log('StreamList', StreamList)
-  console.log('ChannelList', ChannelList)
-  console.log('Wrapper', Wrapper)
-  console.log('Container', Container)
-  console.log('Main', Main)
+const Following = (navigation) => {
+  console.log('following navigation props', navigation)
   const { data, indices } = useMemo(() => {
     const items = [
       {
@@ -42,7 +34,7 @@ const Following = () => {
         isTitle: true,
       },
 
-      { key: 'C2', render: () => <StreamList /> },
+      { key: 'C2', render: () => <StreamList navigation={navigation} /> },
 
       {
         key: 'CONTINUE_WATCHING',
@@ -50,7 +42,7 @@ const Following = () => {
         isTitle: true,
       },
 
-      { key: 'C3', render: () => <StreamList /> },
+      { key: 'C3', render: () => <StreamList  navigation={navigation}/> },
 
       {
         key: 'OFFLINE_CHANNELS',
@@ -58,7 +50,7 @@ const Following = () => {
         isTitle: true,
       },
 
-      { key: 'C4', render: () => <ChannelList /> },
+      { key: 'C4', render: () => <ChannelList navigation={navigation} /> },
     ];
 
     const indices = [];
@@ -82,7 +74,6 @@ const Following = () => {
             renderItem={({ item }) => item.render()}
             keyExtractor={item => item.key}
             stickyHeaderIndices={indices}
-
             onRefresh={() => {}}
             refreshing={false}
 

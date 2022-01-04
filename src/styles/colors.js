@@ -4,6 +4,7 @@ export default {
   white: '#ffffff',
   green: 'green',
   black: '#111111',
+  lightGrey: '#f7f9fa',
   bg: '#000014',
   purple: '#bf94fe',
   blackOpacity10: 'rgba(0,0,0,0.1)',

@@ -19,6 +19,7 @@ export const StreamColumn = styled.View`
   flex: 1;
 `;
 
+
 export const StreamThumbnail = styled.Image`
   width: 119px;
   height: 66px;
@@ -44,7 +45,6 @@ export const StreamAvatar = styled.View`
 export const StreamUsername = styled.Text`
   color: ${colors.black};
   margin-left: 5px;
-  font-family: roboto_700;
 `;
 
 export const StreamDescription = styled.Text`
@@ -53,7 +53,6 @@ export const StreamDescription = styled.Text`
 
 export const StreamCategory = styled.Text`
   color: ${colors.gray};
-  font-family: roboto_500;
 `;
 
 export const TagRow = styled.View`

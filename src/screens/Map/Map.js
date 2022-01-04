@@ -14,6 +14,8 @@ import { NodePlayerView } from 'react-native-nodemediaclient';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import EntypoIcons from 'react-native-vector-icons/Entypo';
 import FontAwesomeIcons from 'react-native-vector-icons/FontAwesome';
+import { VlCPlayerView } from 'react-native-vlc-media-player';
+
 
 
 
@@ -23,19 +25,21 @@ import { data } from './data';
 const StreamPreview = ({height}) => {
   const [streaming, setStreaming] = useState(false);
   const [paused, setPaused] = useState(false)
+  const streamUrl = 'https://stream.mux.com/OKYcLdNNu00wPP02dY57b2SxSF6QZBCoD00cfiy6KZ8nbQ.m3u8'
   const ref = useRef(null);
   return (
     <View style={{flex: 1}}>
       {/*<ApiVideoPlayer style={{height: 250, marginBottom: 20, width: 370, padding: 10, margin: 10}} videoId="vi4SzIk2QlYWQpSpe5fUMTst" /> */}
-      <NodePlayerView 
-        style={{height: 150}}
-        ref={(vp) => { this.vp = vp }}
-        inputUrl={"rtmps://global-live.mux.com:443/app/a9d872cf-4ad8-6af2-f150-98d7c378fedf"}
-        scaleMode={"ScaleAspectFit"}
-        bufferTime={300}
-        maxBufferTime={1000}
-        autoplay={true}
-      />
+      <VlCPlayerView
+          autoplay={false}
+          url={streamUrl}
+          Orientation={Orientation}
+          ggUrl={streamUrl}
+          showTitle={true}
+          title="Programming"
+          onLeftPress={()=>{}}
+          style={{height: 150, width: 300, marginLeft: 50}}
+      /> 
       <WatchStreamButton><ButtonText>Watch the full stream</ButtonText></WatchStreamButton>
     </View>
   );
