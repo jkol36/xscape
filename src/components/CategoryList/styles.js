@@ -20,7 +20,6 @@ export const CategoryName = styled.Text`
   margin-top: 5px;
   max-width: 98px;
   color: ${colors.black};
-  font-family: roboto_700;
   font-size: 13.5px;
 `;
 
@@ -40,6 +39,4 @@ export const Info = styled.Text`
   margin-left: 4px;
   padding-bottom: 1px;
   color: ${colors.green};
-
-  font-family: roboto_500;
 `;

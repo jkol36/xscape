@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, SafeAreaView, Text } from 'react-native';
 import colors from '../../styles/colors';
 import { Dimensions } from 'react-native';
 import { VlCPlayerView } from 'react-native-vlc-media-player';
+import { FlatFeed, StreamApp } from 'react-native-activity-feed';
 import Orientation from 'react-native-orientation';
 import CircularBtn from '../CircularBtn'
+
 
 import { Button, TextInput, Card, Title, Paragraph } from 'react-native-paper';
 
@@ -14,7 +16,8 @@ const {height, width} = Dimensions.get('window')
 export const Container = styled.View`
   padding-top: 14px;
   padding-right: 14px;
-  width: ${Dimensions.get('window').width}
+  width: ${Dimensions.get('window').width};
+  height: ${Dimensions.get('window').height};
 `;
 
 export const StreamerCard = ({streamUrl, navigation}) => {
@@ -65,7 +68,7 @@ export const StreamTitle = styled.Button`
 export const FollowButton = ({children, title}) => {
   return (
     <Button style={styles.followButton}>  
-      {title}
+      <Text style={{color: 'white'}}>{title}</Text>
     </Button>
   )
 }
@@ -88,14 +91,16 @@ export const TagText = styled.Text`
   font-size: 10;
 `;
 
-export const ChatBox = () => {
+export const ChatBox = ({navigation}) => {
   const [text, setText] = React.useState('');
   return (
     <Card style={styles.chatCard}> 
       <Title style={styles.chatText}> Chat </Title>
-      <Card.Content style={styles.chatBox}> 
-        <Paragraph> Chats appear here</Paragraph>
-      </Card.Content>
+      <SafeAreaView>
+        <StreamApp apiKey='c9mtmr3w2jsa' appId='1159574' token='eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiZmFuY3ktZmlyZWZseS01In0.KoHiRV-71SPcV6wyM1MZ6xCUebDhXi7jogtiDWNVuiA'>
+          <FlatFeed />
+        </StreamApp>
+      </SafeAreaView>
       <Card.Actions style={styles.ChatActions}> 
         <TextInput 
           label="Send a message"

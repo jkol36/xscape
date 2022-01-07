@@ -69,5 +69,4 @@ export const TagView = styled.View`
 
 export const TagText = styled.Text`
   color: ${colors.black};
-  font-family: roboto_500;
 `;
