@@ -1,6 +1,15 @@
 import React from 'react';
 import { StyleSheet, Dimensions, View, Text } from 'react-native';
-
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  StreamApp,
+  CommentBox,
+  CommentItem,
+  CommentList,
+  LikeButton,
+  StatusUpdateForm,
+  Activity
+} from 'react-native-activity-feed';
 import { 
   StreamerCard, 
   Container, 
@@ -10,9 +19,19 @@ import {
   TagRow, 
   TagView, 
   TagText,
-  ChatBox
 } from './styles'
 
+const activity = {
+  actor: {
+    data: {
+      name: 'Terry Walker',
+      profileImage: 'https://randomuser.me/api/portraits/women/48.jpg',
+    },
+  },
+  object: 'Hey @Thierry how are you doing?',
+  verb: 'post',
+  time: new Date(),
+};
 
 
 const StreamView = ({videoStatus, navigation}) => {
@@ -21,7 +40,22 @@ const StreamView = ({videoStatus, navigation}) => {
   return (
     <Container>
        <StreamerCard navigation={navigation} streamUrl={streamUrl} />
-       <ChatBox />
+       <CommentItem
+    // this is an example of the data coming from APIs
+              comment={{
+                user: {
+                  data: {
+                    name: 'Rosemary',
+                    subtitle: 'likes playing fresbee in the park',
+                    profileImage: 'https://randomuser.me/api/portraits/women/20.jpg',
+                  },
+                },
+                data: {
+                  text: 'Snowboarding is awesome!',
+                },
+              }}
+            />
+       <CommentBox activity={activity} onSubmit={(data) => console.log('submitting', data)} onAddReaction={(data) => console.log('onAddReaction', data)}/>
     </Container>
 
   )

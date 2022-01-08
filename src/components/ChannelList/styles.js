@@ -33,7 +33,6 @@ export const Column = styled.View`
 
 export const Username = styled.Text`
   color: ${colors.black};
-  font-family: roboto_500;
   font-size: 16px;
 `;
 
